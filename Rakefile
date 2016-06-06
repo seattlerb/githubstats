@@ -15,4 +15,9 @@ Hoe.spec "githubstats" do
   dependency "octokit", "~> 4.0"
 end
 
+task :run => :isolate do
+  proj = ENV["PROJ"] || "zenspider seattlerb"
+  ruby "-Ilib bin/githubstats #{proj}"
+end
+
 # vim: syntax=ruby
